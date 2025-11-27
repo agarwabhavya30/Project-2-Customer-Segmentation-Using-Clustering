@@ -9,8 +9,6 @@ df['First Response Time'] = pd.to_datetime(df['First Response Time'], errors='co
 df['First Response Hours'] = (df['First Response Time'] - df['First Response Time'].min()).dt.total_seconds() / 3600
 df['First Response Hours'] = df['First Response Hours'].fillna(df['First Response Hours'].mean())
 
-df['Customer Age'] = pd.to_numeric(df['Customer Age'], errors='coerce')
-df['Customer Age'] = df['Customer Age'].fillna(df['Customer Age'].mean())
 X = df[['Customer Age', 'First Response Hours']]
 # Applying K-Means clustering 
 k = 3 
@@ -32,3 +30,4 @@ Average Response Time (hours): 744
 Cluster 2
 Number of customers: 4170
 Average Response Time (hours): 14
+
